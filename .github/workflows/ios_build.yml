@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   iosbuild:
-    if: github.repository == 'envoyproxy/envoy'
+    # if: github.repository == 'envoyproxy/envoy'
     name: ios_build
     runs-on: macos-12
     timeout-minutes: 120
@@ -41,7 +41,7 @@ jobs:
             --remote_header="Authorization=Bearer $GITHUB_TOKEN" \
             //library/swift:ios_framework
   swifthelloworld:
-    if: github.repository == 'envoyproxy/envoy'
+    # if: github.repository == 'envoyproxy/envoy'
     name: swift_helloworld
     needs: iosbuild
     runs-on: macos-12
@@ -91,7 +91,7 @@ jobs:
       if: ${{ failure() || cancelled() }}
       name: 'Log app run'
   swiftbaselineapp:
-    if: github.repository == 'envoyproxy/envoy'
+    # if: github.repository == 'envoyproxy/envoy'
     name: swift_baseline_app
     needs: iosbuild
     runs-on: macos-12
@@ -141,7 +141,7 @@ jobs:
       if: ${{ failure() || cancelled() }}
       name: 'Log app run'
   swiftexperimentalapp:
-    if: github.repository == 'envoyproxy/envoy'
+    # if: github.repository == 'envoyproxy/envoy'
     name: swift_experimental_app
     needs: iosbuild
     runs-on: macos-12
@@ -193,7 +193,7 @@ jobs:
       if: ${{ failure() || cancelled() }}
       name: 'Log app run'
   swiftasyncawait:
-    if: github.repository == 'envoyproxy/envoy'
+    # if: github.repository == 'envoyproxy/envoy'
     name: swift_async_await
     needs: iosbuild
     runs-on: macos-12
@@ -243,7 +243,7 @@ jobs:
       if: ${{ failure() || cancelled() }}
       name: 'Log app run'
   objchelloworld:
-    if: github.repository == 'envoyproxy/envoy'
+    # if: github.repository == 'envoyproxy/envoy'
     name: objc_helloworld
     needs: iosbuild
     runs-on: macos-12

@@ -15,10 +15,10 @@ concurrency:
 
 jobs:
   androidbuild:
-    if: github.repository == 'envoyproxy/envoy'
+    # if: github.repository == 'envoyproxy/envoy'
     name: android_build
     runs-on: ubuntu-20.04
-    permissions: 
+    permissions:
       contents: write # to upload assets to release
     timeout-minutes: 90
     container:
@@ -47,11 +47,11 @@ jobs:
           --linkopt=-fuse-ld=lld \
           //:android_dist
   javahelloworld:
-    if: github.repository == 'envoyproxy/envoy'
+    # if: github.repository == 'envoyproxy/envoy'
     name: java_helloworld
     needs: androidbuild
     runs-on: macos-12
-    permissions: 
+    permissions:
       contents: write # to upload asserts to release
     timeout-minutes: 50
     steps:
@@ -97,11 +97,11 @@ jobs:
       if: steps.should_run.outputs.run_ci_job == 'true'
       run: adb logcat -e "received headers with status 200" -m 1
   kotlinhelloworld:
-    if: github.repository == 'envoyproxy/envoy'
+    # if: github.repository == 'envoyproxy/envoy'
     name: kotlin_helloworld
     needs: androidbuild
     runs-on: macos-12
-    permissions: 
+    permissions:
       contents: write # to upload asserts to release
     timeout-minutes: 50
     steps:
@@ -147,11 +147,11 @@ jobs:
       if: steps.should_run.outputs.run_ci_job == 'true'
       run: adb logcat -e "received headers with status 200" -m 1
   kotlinbaselineapp:
-    if: github.repository == 'envoyproxy/envoy'
+    # if: github.repository == 'envoyproxy/envoy'
     name: kotlin_baseline_app
     needs: androidbuild
     runs-on: macos-12
-    permissions: 
+    permissions:
       contents: write # to upload asserts to release
     timeout-minutes: 50
     steps:
@@ -197,11 +197,11 @@ jobs:
       if: steps.should_run.outputs.run_ci_job == 'true'
       run: adb logcat -e "received headers with status 301" -m 1
   kotlinexperimentalapp:
-    if: github.repository == 'envoyproxy/envoy'
+    # if: github.repository == 'envoyproxy/envoy'
     name: kotlin_experimental_app
     needs: androidbuild
     runs-on: macos-12
-    permissions: 
+    permissions:
       contents: write # to upload asserts to release
     timeout-minutes: 50
     steps:

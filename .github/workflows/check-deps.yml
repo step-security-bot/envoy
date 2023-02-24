@@ -12,7 +12,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-20.04
-    if: github.repository == 'envoyproxy/envoy'
+    # if: github.repository == 'envoyproxy/envoy'
     permissions:
       issues: write # required to open/close dependency issues
     steps:
