@@ -19,7 +19,7 @@ function success() {
 
 function failure() {
   echo "Skipping $job because there are no mobile changes on $branch_name"
-  echo "run_ci_job=true" >> "$GITHUB_OUTPUT"
+  echo "run_ci_job=false" >> "$GITHUB_OUTPUT"
 }
 
 if [[ $branch_name == "main" ]]; then
@@ -27,7 +27,7 @@ if [[ $branch_name == "main" ]]; then
   case "$job" in
     swiftbaselineapp|swiftexperimentalapp|swiftasyncawait|objchelloworld|javahelloworld|kotlinbaselineapp|kotlinexperimentalapp)
       echo "Skipping $job because current branch is main"
-      echo "run_ci_job=true" >> "$GITHUB_OUTPUT"
+      echo "run_ci_job=false" >> "$GITHUB_OUTPUT"
       exit 0
       ;;
   esac
@@ -41,7 +41,7 @@ fi
 if [[ $GITHUB_BASE_REF == release/* ]]; then
   # Skip mobile CI jobs on PRs targeting release branches
   echo "Skipping $job because the PR is targeting a release branch"
-  echo "run_ci_job=true" >> "$GITHUB_OUTPUT"
+  echo "run_ci_job=false" >> "$GITHUB_OUTPUT"
   exit 0
 fi
 
