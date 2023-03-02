@@ -6,8 +6,7 @@ on:
     - main
   pull_request:
 
-permissions:
- read-all
+permissions: read-all
 
 concurrency:
   group: ${{ github.head_ref-github.workflow || github.run_id }}
@@ -18,7 +17,7 @@ jobs:
     if: github.repository == 'envoyproxy/envoy'
     name: android_build
     runs-on: ubuntu-20.04
-    permissions: 
+    permissions:
       contents: write # to upload assets to release
     timeout-minutes: 90
     container:
@@ -51,7 +50,7 @@ jobs:
     name: java_helloworld
     needs: androidbuild
     runs-on: macos-12
-    permissions: 
+    permissions:
       contents: write # to upload asserts to release
     timeout-minutes: 50
     steps:
@@ -101,7 +100,7 @@ jobs:
     name: kotlin_helloworld
     needs: androidbuild
     runs-on: macos-12
-    permissions: 
+    permissions:
       contents: write # to upload asserts to release
     timeout-minutes: 50
     steps:
@@ -151,7 +150,7 @@ jobs:
     name: kotlin_baseline_app
     needs: androidbuild
     runs-on: macos-12
-    permissions: 
+    permissions:
       contents: write # to upload asserts to release
     timeout-minutes: 50
     steps:
@@ -201,7 +200,7 @@ jobs:
     name: kotlin_experimental_app
     needs: androidbuild
     runs-on: macos-12
-    permissions: 
+    permissions:
       contents: write # to upload asserts to release
     timeout-minutes: 50
     steps:
