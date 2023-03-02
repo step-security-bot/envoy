@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   docs:
-    # if: github.repository == 'envoyproxy/envoy'
+    if: github.repository == 'envoyproxy/envoy'
     runs-on: ubuntu-20.04
     timeout-minutes: 20
     container:
