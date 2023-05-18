@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write # to edit comments
+      actions: write
     steps:
     - uses: jpsim/retest@c158dec0a7f67cb85f8367468dc8a9a75308bb7f
       with:
