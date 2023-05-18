@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   androidbuild:
-    if: github.repository == 'envoyproxy/envoy'
+#     if: github.repository == 'envoyproxy/envoy'
     name: android_build
     runs-on: ubuntu-20.04
     permissions:
@@ -26,6 +26,7 @@ jobs:
         CC: /opt/llvm/bin/clang
         CXX: /opt/llvm/bin/clang++
     steps:
+    - run: exit 1
     - uses: actions/checkout@v3
       with:
         fetch-depth: 0
