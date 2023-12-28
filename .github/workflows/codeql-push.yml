@@ -12,6 +12,9 @@ concurrency:
   group: ${{ github.head_ref-github.workflow || github.run_id }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   CodeQL-Build:
 
@@ -26,13 +29,13 @@ jobs:
 
     steps:
     - name: Pre-cleanup
-      uses: envoyproxy/toolshed/gh-actions/diskspace@actions-v0.2.20
+      uses: envoyproxy/toolshed/gh-actions/diskspace@6b3ddd1e42c252d68fb98973760c0ee1943c9c21 # actions-v0.2.20
       with:
         to_remove: |
           /usr/local/lib/android
 
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
     - name: Get build targets
       run: |
